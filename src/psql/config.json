@@ -5,7 +5,6 @@
     "database": "development",
     "port": "5433",
     "host": "0.0.0.0",
-    "logging": true,
     "dialect": "postgres"
   },
   "test": {
@@ -22,7 +21,6 @@
     "database": "production",
     "port": "5433",
     "host": "0.0.0.0",
-    "dialect": "postgres",
-    "logging": false
+    "dialect": "postgres"
   }
 }
