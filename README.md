@@ -35,3 +35,10 @@ a system
   - Endpoint name
   - Endpoint description
   - Endpoint parameters
+
+## Start application
+- install node.js 14.15.0
+- docker-compose up -d
+- npx sequelize db:migrate
+- npm sequelize db:seed:all
+- npm run start

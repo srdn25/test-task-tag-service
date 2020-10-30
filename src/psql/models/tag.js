@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   tag.init({
     name: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false,
     },
     userId: {
