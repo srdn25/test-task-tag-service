@@ -65,10 +65,14 @@ module.exports = (router) => {
 
   router.get('/tags', async (req, res, next) => {
     // TODO: without pagination
-    const { filter } = req.query;
+    const { filter, userId, order } = req.query;
 
     try {
-      const result = await tagHandler.getList({ filter });
+      const result = await tagHandler.getList({
+        filter,
+        userId,
+        order,
+      });
       res.json(result);
     } catch (err) {
       next(err);

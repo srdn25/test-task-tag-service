@@ -64,14 +64,18 @@ const remove = async (data) => {
 
 const getList = async (options) => {
   try {
-    const { filter } = options;
+    const { filter, userId, order = [['name', 'ASC']] } = options;
 
     const tags = await db.tag.findAndCountAll({
       where: {
-        name: {
-          [db.Sequelize.Op.iLike]: `${filter}%`,
-        }
-      }
+        ...(filter ? {
+          name: {
+            [db.Sequelize.Op.iLike]: `${filter}%`,
+          }
+        } : {}),
+        ...(userId ? { userId } : {}),
+      },
+      order,
     });
 
     if (!tags) throw {
