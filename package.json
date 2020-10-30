@@ -1,0 +1,31 @@
+{
+  "name": "test-task-tag-service",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srdn25/test-task-tag-service.git"
+  },
+  "keywords": [
+    "node",
+    "sequelize",
+    "postgres"
+  ],
+  "author": "Denis Sorokin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/srdn25/test-task-tag-service/issues"
+  },
+  "homepage": "https://github.com/srdn25/test-task-tag-service#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
+  }
+}
