@@ -71,3 +71,15 @@ a system
       "userId": 3
   }'
   ``` 
+
+- Delete tag **DELETE** `/api/tags/:id`
+  - endpoint for delete tag
+  - required fields in body: userId. In params: id
+  
+  ```
+  curl --location --request DELETE 'http://localhost:3000/api/tags/9' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "userId": 3
+  }'
+  ```

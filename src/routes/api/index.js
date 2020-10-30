@@ -42,4 +42,24 @@ module.exports = (router) => {
       next(err);
     }
   });
+
+  router.delete('/tags/:id', async (req, res, next) => {
+    // TODO: in auth take userId from header auth token
+    const { id } = req.params;
+    const { userId } = req.body;
+
+    if (!id || !userId) {
+      next({
+        message: 'id, userId is required',
+        status: 400
+      });
+    }
+
+    try {
+      const result = await tagHandler.remove({ userId, id });
+      res.json(result);
+    } catch (err) {
+      next(err);
+    }
+  });
 };

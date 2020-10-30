@@ -1,5 +1,8 @@
 const db = require('../psql/models');
 
+const handleUpdateRemoveResult = (result) => (Array.isArray(result) && result[0] > 0 || result > 0)
+    ? { success: true } : { success: false };
+
 const create = async (data) => {
   const transaction = await db.sequelize.transaction();
 
@@ -34,10 +37,26 @@ const update = async (data) => {
     };
 
     const result = await db.tag.update({ name }, { where: { id } });
-    return Array.isArray(result)
-      ? result[0] > 0
-        ? { success: true } : { success: false }
-        : { message: 'looks like updated' };
+    return handleUpdateRemoveResult(result);
+  } catch (err) {
+    throw err;
+  }
+};
+
+const remove = async (data) => {
+  try {
+    const { id, userId } = data;
+
+    const tag = await db.tag.findOne({ where: { id, userId } });
+
+    if (!tag) throw {
+      message: 'Tag not found or you is not owner of this tag',
+      status: 400,
+    };
+
+    const result = await db.tag.destroy({ where: { id } });
+
+    return handleUpdateRemoveResult(result);
   } catch (err) {
     throw err;
   }
@@ -46,4 +65,5 @@ const update = async (data) => {
 module.exports = {
   create,
   update,
+  remove,
 };
