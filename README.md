@@ -89,5 +89,5 @@ a system
   - allowed query parameter: filter (for search by name)
   
   ```
-  curl --location --request GET 'http://localhost:3000/api/tags?filter=anim'
+  curl --location --request GET 'http://localhost:3000/api/tags?filter=anim&userId=1'
   ```
