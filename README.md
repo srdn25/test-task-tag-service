@@ -83,3 +83,11 @@ a system
       "userId": 3
   }'
   ```
+
+- Get tags **GET** `/api/tags`
+  - endpoint for get tag list
+  - allowed query parameter: filter (for search by name)
+  
+  ```
+  curl --location --request GET 'http://localhost:3000/api/tags?filter=anim'
+  ```

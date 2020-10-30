@@ -62,4 +62,16 @@ module.exports = (router) => {
       next(err);
     }
   });
+
+  router.get('/tags', async (req, res, next) => {
+    // TODO: without pagination
+    const { filter } = req.query;
+
+    try {
+      const result = await tagHandler.getList({ filter });
+      res.json(result);
+    } catch (err) {
+      next(err);
+    }
+  });
 };

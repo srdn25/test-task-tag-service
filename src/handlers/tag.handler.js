@@ -62,8 +62,32 @@ const remove = async (data) => {
   }
 };
 
+const getList = async (options) => {
+  try {
+    const { filter } = options;
+
+    const tags = await db.tag.findAndCountAll({
+      where: {
+        name: {
+          [db.Sequelize.Op.iLike]: `${filter}%`,
+        }
+      }
+    });
+
+    if (!tags) throw {
+      message: 'Strange, but we dont have tags',
+      status: 400,
+    };
+
+    return tags;
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports = {
   create,
   update,
   remove,
+  getList,
 };
