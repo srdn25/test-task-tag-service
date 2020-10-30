@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "root",
+    "password": "12345",
+    "database": "development",
+    "port": "5433",
+    "host": "0.0.0.0",
+    "logging": true,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": "12345",
+    "database": "test",
+    "port": "5433",
+    "host": "0.0.0.0",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "root",
+    "password": "12345",
+    "database": "production",
+    "port": "5433",
+    "host": "0.0.0.0",
+    "dialect": "postgres",
+    "logging": false
+  }
+}
