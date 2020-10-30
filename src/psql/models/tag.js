@@ -5,7 +5,9 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class tag extends Model {
     static associate(models) {
-      // define association here
+      tag.belongsToMany(models.video, {
+        through: 'video_tag',
+      });
     }
   }
 
