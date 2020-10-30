@@ -15,7 +15,7 @@ const create = async (data) => {
 
     await transaction.commit();
 
-    return result;
+    return tag;
   } catch (err) {
     await transaction.rollback();
     throw err;
