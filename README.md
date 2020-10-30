@@ -42,3 +42,32 @@ a system
 - npx sequelize db:migrate
 - npm sequelize db:seed:all
 - npm run start
+
+## Endpoints
+- create tag **POST** `/api/tags`
+  - endpoint for create tag
+  - required fields in body: name, videoId, userId
+  
+  ```
+  curl --location --request POST 'http://localhost:3000/api/tags' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "name": "animals",
+      "videoId": 2,
+      "userId": 3
+  }'
+  ```
+
+- Edit tag **PUT** `/api/tags`
+  - endpoint for update tag
+  - required fields in body: name, userId
+  
+  ```
+  curl --location --request PUT 'http://localhost:3000/api/tags' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+      "id": 7,
+      "name": "animal!",
+      "userId": 3
+  }'
+  ``` 
